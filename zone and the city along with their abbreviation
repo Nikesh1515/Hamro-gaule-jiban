@@ -1,0 +1,61 @@
+# create a mapping of state abbreviation
+zones = {
+    'Mechi': 'ME',
+    'Koshi': 'KS',
+    'Banke': 'BN',
+    'Kathmandu': 'KTM',
+    'Palpa': 'PL'
+}
+
+# create a basic set of zone and some cities on them
+cities = {
+    'ME': 'Damak',
+    'KS': 'Biratnagar',
+    'BN': 'Nepalgunj'
+}
+
+# add some more cities
+cities['KTM'] = 'Kathmandu'
+cities['PL'] = 'Shree Nagar'
+
+# print out some cities
+print '_' * 10
+print "KTM zone has: ", cities['KTM']
+print "ME zone has: ", cities['ME']
+
+# print some zone
+print '_' * 10
+print "Banke's abbreviation is: ", zones['Banke']
+print "Palpa's abbreviation is: ", zones['Palpa']
+
+# do it by using the state then cities dict
+print '_' * 10
+print "Mechi has: ", cities[zones['Mechi']]
+print "Koshi has: ", cities[zones['Koshi']]
+
+# print every zone abbreviation
+print '_' * 10
+for zone, abbrev in zones.items():
+    print "%s is abbreviated %s" % (zone, abbrev)
+    
+# print every city in zone
+for abbrev, city in cities.items():
+    print "%s has the city %s" % (abbrev, city)
+    
+# now do both at the same time
+print '_' * 10
+for zone, abbrev in zones.items():
+    print "%s zone is abbreviated %s and has city %s." % (zone, abbrev, cities[abbrev])
+
+print '_' * 10
+# safely get an abbreviation by zone that might not be there
+
+zone = zones.get('Janakpur', None)
+
+if not zone:
+    print "Sorry, no Janakpur."
+    
+# get a city with defult values
+city = cities.get('JNK', 'Does Not Exist')
+print "The city for the zone 'JNK' is: %s" % city 
+
